@@ -2,10 +2,8 @@ import React from 'react'
 
 const CityFilter = () => {
   return (
-    <select>
-      <option selected value="All Cities">
-        All Cities
-      </option>
+    <select defaultValue="All Cities">
+      <option value="All Cities">All Cities</option>
       <option value="Tampere">Tampere</option>
       <option value="Jyväskylä">Jyväskylä</option>
       <option value="Helsinki">Helsinki</option>
