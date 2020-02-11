@@ -2,6 +2,10 @@
   "name": "weather-app-coding-task",
   "version": "0.1.0",
   "private": true,
+  "description": "Weather App created with React using data from OpenWeatherMap API",
+  "author": {
+    "name": "Jarmo Syvälahti"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
@@ -45,7 +49,10 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": ["eslint --fix", "prettier --write"]
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "prettier": {
     "semi": false,
