@@ -1,12 +1,12 @@
 import React from 'react'
 import CurrentWeather from '../components/CurrentWeather'
-import Forecast from '../components/Forecast'
+import Forecasts from '../components/Forecasts'
 
 const City = () => {
   return (
     <div>
       <CurrentWeather />
-      <Forecast />
+      <Forecasts />
     </div>
   )
 }
