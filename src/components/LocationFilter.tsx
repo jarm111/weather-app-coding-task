@@ -1,9 +1,9 @@
 import React from 'react'
 
-const CityFilter = () => {
+const LocationFilter = () => {
   return (
-    <select defaultValue="All Cities">
-      <option value="All Cities">All Cities</option>
+    <select defaultValue="All Locations">
+      <option value="All Locations">All Cities</option>
       <option value="Tampere">Tampere</option>
       <option value="Jyväskylä">Jyväskylä</option>
       <option value="Helsinki">Helsinki</option>
@@ -12,4 +12,4 @@ const CityFilter = () => {
   )
 }
 
-export default CityFilter
+export default LocationFilter

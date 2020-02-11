@@ -1,14 +1,14 @@
 import React from 'react'
 import Heading from './components/Heading'
-import CityFilter from './components/CityFilter'
-import City from './components/City'
+import LocationFilter from './components/LocationFilter'
+import Location from './components/Location'
 
 const App = () => {
   return (
     <div>
       <Heading />
-      <CityFilter />
-      <City />
+      <LocationFilter />
+      <Location />
     </div>
   )
 }
