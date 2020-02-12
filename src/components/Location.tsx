@@ -1,34 +1,20 @@
 import React from 'react'
 import CurrentWeather from './CurrentWeather'
 import Forecasts from './Forecasts'
-import { ForecastData } from '../components/Forecast'
+import LocationData from '../types/LocationData'
 
-const Location = () => {
-  const forecasts: ForecastData[] = [
-    {
-      id: 1581346800,
-      time: '15:00',
-      icon: '*icon*',
-      temp: 3.13,
-      wind: 4.1,
-      humidity: 82,
-      rain: 0.31
-    },
-    {
-      id: 1581332500,
-      time: '18:00',
-      icon: '*icon*',
-      temp: 3.13,
-      wind: 5.1,
-      humidity: 90,
-      rain: 0.32
-    }
-  ]
+type Props = {
+  location: LocationData
+}
 
+const Location = ({ location }: Props) => {
   return (
     <div>
-      <CurrentWeather />
-      <Forecasts forecasts={forecasts} />
+      <CurrentWeather
+        name={location.name}
+        currentWeather={location.forecasts[0]}
+      />
+      <Forecasts forecasts={location.forecasts.slice(1)} />
     </div>
   )
 }

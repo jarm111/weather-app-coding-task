@@ -1,5 +1,6 @@
 import React from 'react'
-import Forecast, { ForecastData } from '../components/Forecast'
+import Forecast from '../components/Forecast'
+import ForecastData from '../types/ForeCastData'
 
 type Props = {
   forecasts: ForecastData[]

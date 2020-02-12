@@ -1,21 +1,16 @@
 import React from 'react'
-
-export interface ForecastData {
-  id: number
-  time: string
-  icon: string
-  temp: number
-  wind: number
-  humidity: number
-  rain: number
-}
+import ForecastData from '../types/ForeCastData'
 
 type Props = {
   forecast: ForecastData
 }
 
 const Forecast = ({ forecast }: Props) => {
-  const { time, icon, temp, wind, humidity, rain } = forecast
+  const { date, icon, temp, wind, humidity, rain } = forecast
+  const time = new Date(date)
+    .toString()
+    .split(' ')[4]
+    .slice(0, 5)
 
   return (
     <div>
