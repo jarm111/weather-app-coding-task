@@ -1,13 +1,15 @@
 import React from 'react'
-import Forecast from '../components/Forecast'
+import Forecast, { ForecastData } from '../components/Forecast'
 
-const Forecasts = () => {
-  const entries = [0, 1, 2, 3, 4, 5]
+type Props = {
+  forecasts: ForecastData[]
+}
 
+const Forecasts = ({ forecasts }: Props) => {
   return (
     <div>
-      {entries.map(entry => (
-        <Forecast key={entry} />
+      {forecasts.map(forecast => (
+        <Forecast key={forecast.id} forecast={forecast} />
       ))}
     </div>
   )

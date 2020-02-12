@@ -1,17 +1,33 @@
 import React from 'react'
 
-const Forecast = () => {
+export interface ForecastData {
+  id: number
+  time: string
+  icon: string
+  temp: number
+  wind: number
+  humidity: number
+  rain: number
+}
+
+type Props = {
+  forecast: ForecastData
+}
+
+const Forecast = ({ forecast }: Props) => {
+  const { time, icon, temp, wind, humidity, rain } = forecast
+
   return (
     <div>
       <div>
-        <div>15:00</div>
-        <div>*weather icon*</div>
-        <div>-1 C</div>
+        <div>{time}</div>
+        <div>{icon}</div>
+        <div>{temp} °C</div>
       </div>
       <div>
-        <div>2.1 m/s</div>
-        <div>5 %</div>
-        <div>1 mm</div>
+        <div>{wind} m/s</div>
+        <div>{humidity} %</div>
+        <div>{rain} mm</div>
       </div>
     </div>
   )
