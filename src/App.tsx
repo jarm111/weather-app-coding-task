@@ -2,56 +2,22 @@ import React from 'react'
 import Heading from './components/Heading'
 import LocationFilter from './components/LocationFilter'
 import Location from './components/Location'
-import LocationData from './types/LocationData'
-import helsinkiJson from './utils/mock-data/open-weather-api-helsinki-response.json'
+import helsinki from './utils/mock-data/open-weather-api-helsinki-response.json'
+import tampere from './utils/mock-data/open-weather-api-tampere-response.json'
+import jyvaskyla from './utils/mock-data/open-weather-api-jyvaskyla-response.json'
+import kuopio from './utils/mock-data/open-weather-api-kuopio-response.json'
 import apiDataParser from './utils/apiDataParser'
 
 const App = () => {
-  const location: LocationData = {
-    name: 'Helsinki',
-    id: 658225,
-    forecasts: [
-      {
-        id: 1581346800,
-        date: '2020-02-15 09:00:00',
-        icon: '*icon*',
-        temp: 3.13,
-        wind: 4.1,
-        humidity: 82,
-        rain: 0.31,
-        description: 'scattered clouds'
-      },
-      {
-        id: 1581345420,
-        date: '2020-02-15 12:00:00',
-        icon: '*icon*',
-        temp: 3.13,
-        wind: 4.1,
-        humidity: 82,
-        rain: 0.31,
-        description: 'scattered clouds'
-      },
-      {
-        id: 1581345430,
-        date: '2020-02-15 15:00:00',
-        icon: '*icon*',
-        temp: 2.13,
-        wind: 7.1,
-        humidity: 56,
-        rain: 0,
-        description: 'clear sky'
-      }
-    ]
-  }
-
-  console.log(helsinkiJson)
-  console.log(apiDataParser([helsinkiJson]))
+  const locations = apiDataParser([helsinki, jyvaskyla, tampere, kuopio])
 
   return (
     <div>
       <Heading />
       <LocationFilter />
-      <Location location={location} />
+      {locations.map(location => (
+        <Location key={location.id} location={location} />
+      ))}
     </div>
   )
 }

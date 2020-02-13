@@ -14,7 +14,7 @@ const Location = ({ location }: Props) => {
         name={location.name}
         currentWeather={location.forecasts[0]}
       />
-      <Forecasts forecasts={location.forecasts.slice(1)} />
+      <Forecasts forecasts={location.forecasts.slice(1, 6)} />
     </div>
   )
 }
