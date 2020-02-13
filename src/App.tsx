@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Heading from './components/Heading'
 import LocationFilter from './components/LocationFilter'
 import Location from './components/Location'
@@ -9,15 +9,18 @@ import kuopio from './utils/mock-data/open-weather-api-kuopio-response.json'
 import apiDataParser from './utils/apiDataParser'
 
 const App = () => {
+  const [filter, setFilter] = useState('')
   const locations = apiDataParser([helsinki, jyvaskyla, tampere, kuopio])
 
   return (
     <div>
       <Heading />
-      <LocationFilter />
-      {locations.map(location => (
-        <Location key={location.id} location={location} />
-      ))}
+      <LocationFilter setFilter={setFilter} locations={locations} />
+      {locations
+        .filter(location => !filter || location.name === filter)
+        .map(location => (
+          <Location key={location.id} location={location} />
+        ))}
     </div>
   )
 }

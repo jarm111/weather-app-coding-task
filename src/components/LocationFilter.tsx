@@ -1,13 +1,20 @@
 import React from 'react'
+import LocationData from '../types/LocationData'
 
-const LocationFilter = () => {
+type Props = {
+  setFilter: React.Dispatch<string>
+  locations: Array<LocationData>
+}
+
+const LocationFilter = ({ setFilter, locations }: Props) => {
   return (
-    <select defaultValue="All Locations">
-      <option value="All Locations">All Cities</option>
-      <option value="Tampere">Tampere</option>
-      <option value="Jyväskylä">Jyväskylä</option>
-      <option value="Helsinki">Helsinki</option>
-      <option value="Kuopio">Kuopio</option>
+    <select onChange={e => setFilter(e.target.value)}>
+      <option value="">All Cities</option>
+      {locations.map(location => (
+        <option key={location.id} value={location.name}>
+          {location.name}
+        </option>
+      ))}
     </select>
   )
 }
