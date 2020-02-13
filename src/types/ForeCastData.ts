@@ -1,6 +1,6 @@
 type ForecastData = Readonly<{
   id: number
-  date: string
+  date: Date
   icon: string
   temp: number
   wind: number

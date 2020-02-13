@@ -8,7 +8,7 @@ const apiDataParser = (locations: Array<any>): Array<LocationData> => {
       forecasts: location.list.map((forecast: any) => {
         return {
           id: forecast.dt,
-          date: forecast.dt_txt,
+          date: new Date(forecast.dt_txt),
           icon: forecast.weather[0].icon,
           temp: forecast.main.temp,
           wind: forecast.wind.speed,

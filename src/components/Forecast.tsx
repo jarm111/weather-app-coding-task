@@ -7,7 +7,7 @@ type Props = {
 
 const Forecast = ({ forecast }: Props) => {
   const { date, icon, temp, wind, humidity, rain } = forecast
-  const time = new Date(date)
+  const time = date
     .toString()
     .split(' ')[4]
     .slice(0, 5)
