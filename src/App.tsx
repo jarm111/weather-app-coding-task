@@ -3,6 +3,8 @@ import Heading from './components/Heading'
 import LocationFilter from './components/LocationFilter'
 import Location from './components/Location'
 import LocationData from './types/LocationData'
+import helsinkiJson from './utils/mock-data/open-weather-api-helsinki-response.json'
+import apiDataParser from './utils/apiDataParser'
 
 const App = () => {
   const location: LocationData = {
@@ -41,6 +43,9 @@ const App = () => {
       }
     ]
   }
+
+  console.log(helsinkiJson)
+  console.log(apiDataParser([helsinkiJson]))
 
   return (
     <div>
