@@ -2,6 +2,7 @@ import React from 'react'
 import CurrentWeather from './CurrentWeather'
 import Forecast from './Forecast'
 import LocationData from '../types/LocationData'
+import styles from './Location.module.css'
 
 type Props = {
   location: LocationData
@@ -9,7 +10,7 @@ type Props = {
 
 const Location = ({ location }: Props) => {
   return (
-    <div>
+    <div className={styles.container}>
       <CurrentWeather
         name={location.name}
         currentWeather={location.forecasts[0]}

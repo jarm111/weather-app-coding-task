@@ -7,6 +7,7 @@ import tampere from './utils/mock-data/open-weather-api-tampere-response.json'
 import jyvaskyla from './utils/mock-data/open-weather-api-jyvaskyla-response.json'
 import kuopio from './utils/mock-data/open-weather-api-kuopio-response.json'
 import apiDataParser from './utils/apiDataParser'
+import styles from './App.module.css'
 
 const App = () => {
   const [filter, setFilter] = useState('')
@@ -15,12 +16,14 @@ const App = () => {
   return (
     <div>
       <Heading />
-      <LocationFilter setFilter={setFilter} locations={locations} />
-      {locations
-        .filter(location => !filter || location.name === filter)
-        .map(location => (
-          <Location key={location.id} location={location} />
-        ))}
+      <div className={styles.content}>
+        <LocationFilter setFilter={setFilter} locations={locations} />
+        {locations
+          .filter(location => !filter || location.name === filter)
+          .map(location => (
+            <Location key={location.id} location={location} />
+          ))}
+      </div>
     </div>
   )
 }

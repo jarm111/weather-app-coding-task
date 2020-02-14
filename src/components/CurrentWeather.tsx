@@ -1,5 +1,6 @@
 import React from 'react'
 import ForecastData from '../types/ForeCastData'
+import styles from './CurrentWeather.module.css'
 
 type Props = {
   name: string
@@ -13,16 +14,24 @@ const CurrentWeather = ({ name, currentWeather }: Props) => {
   const time = splitDate[4].slice(0, 5)
 
   return (
-    <div>
-      <div>{name}</div>
-      <div>{description}</div>
-      <div>{icon}</div>
-      <div>{temp} °C</div>
-      <div>{monthAndDay}</div>
-      <div>{time}</div>
-      <div>Wind: {wind} m/s</div>
-      <div>Humidity: {humidity} %</div>
-      <div>Precipitation (3h): {rain} mm</div>
+    <div className={styles.container}>
+      <div>
+        <div className={styles.name}>{name}</div>
+        <div className={styles.smallText}>{description}</div>
+      </div>
+      <div>
+        <div>{icon}</div>
+        <div className={styles.temp}>{temp} °C</div>
+      </div>
+      <div>
+        <div className={styles.date}>{monthAndDay}</div>
+        <div className={styles.smallText}>{time}</div>
+      </div>
+      <div>
+        <div className={styles.smallText}>Wind: {wind} m/s</div>
+        <div className={styles.smallText}>Humidity: {humidity} %</div>
+        <div className={styles.smallText}>Precipitation (3h): {rain} mm</div>
+      </div>
     </div>
   )
 }

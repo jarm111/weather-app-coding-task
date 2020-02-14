@@ -1,0 +1,12 @@
+.container {
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  margin-bottom: 1em;
+  padding: 0.7em;
+}
+
+.select {
+  border: 0px;
+  width: 100%;
+}
