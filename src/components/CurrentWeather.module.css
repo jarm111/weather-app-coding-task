@@ -3,7 +3,43 @@
   border: 1px solid #e6e6e6;
   border-radius: 4px;
   margin-bottom: 1em;
-  padding: 1em 0.7em 0.7em;
+  display: flex;
+  flex-wrap: wrap;
+  height: 10em;
+}
+
+.flexChild {
+  height: 50%;
+  width: 50%;
+}
+
+.alignBottom {
+  display: flex;
+  align-items: flex-end;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.topLeft {
+  composes: flexChild;
+}
+
+.topRight {
+  composes: flexChild;
+  composes: alignRight;
+}
+
+.bottomLeft {
+  composes: flexChild;
+  composes: alignBottom;
+}
+
+.bottomRight {
+  composes: flexChild;
+  composes: alignBottom;
+  composes: alignRight;
 }
 
 .textMargin {
