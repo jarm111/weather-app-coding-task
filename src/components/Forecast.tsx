@@ -2,6 +2,7 @@ import React from 'react'
 import ForecastData from '../types/ForeCastData'
 import styles from './Forecast.module.css'
 import round from '../utils/round'
+import getWeatherIcon from '../utils/getWeatherIcon'
 
 type Props = {
   forecast: ForecastData
@@ -18,7 +19,9 @@ const Forecast = ({ forecast }: Props) => {
     <div className={styles.container}>
       <div>
         <div className={styles.time}>{time}</div>
-        <div>{icon}</div>
+        <div>
+          <img src={getWeatherIcon(icon)} alt="Weather icon" />
+        </div>
         <div className={styles.temp}>{round(temp, 0)} °C</div>
       </div>
       <div className={styles.bottomPart}>
