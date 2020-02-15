@@ -5,40 +5,44 @@
   margin-bottom: 1em;
   display: flex;
   flex-wrap: wrap;
-  height: 10em;
 }
 
-.flexChild {
-  height: 50%;
-  width: 50%;
-}
-
-.alignBottom {
-  display: flex;
-  align-items: flex-end;
+.partPadding {
+  padding: 1em;
 }
 
 .alignRight {
   text-align: right;
 }
 
+.topRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottomRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
 .topLeft {
-  composes: flexChild;
+  composes: partPadding;
 }
 
 .topRight {
-  composes: flexChild;
+  composes: partPadding;
   composes: alignRight;
 }
 
 .bottomLeft {
-  composes: flexChild;
-  composes: alignBottom;
+  composes: partPadding;
 }
 
 .bottomRight {
-  composes: flexChild;
-  composes: alignBottom;
+  composes: partPadding;
   composes: alignRight;
 }
 
