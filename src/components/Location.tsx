@@ -15,7 +15,7 @@ const Location = ({ location }: Props) => {
         name={location.name}
         currentWeather={location.forecasts[0]}
       />
-      <div>
+      <div className={styles.forecasts}>
         {location.forecasts.slice(1, 6).map(forecast => (
           <Forecast key={forecast.id} forecast={forecast} />
         ))}
