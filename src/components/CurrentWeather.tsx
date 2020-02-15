@@ -1,6 +1,7 @@
 import React from 'react'
 import ForecastData from '../types/ForeCastData'
 import styles from './CurrentWeather.module.css'
+import round from '../utils/round'
 
 type Props = {
   name: string
@@ -22,7 +23,7 @@ const CurrentWeather = ({ name, currentWeather }: Props) => {
         </div>
         <div className={styles.topRight}>
           <div>{icon}</div>
-          <div className={styles.temp}>{temp} °C</div>
+          <div className={styles.temp}>{round(temp, 0)} °C</div>
         </div>
       </div>
       <div className={styles.bottomRow}>
@@ -31,9 +32,11 @@ const CurrentWeather = ({ name, currentWeather }: Props) => {
           <div className={styles.smallText}>{time}</div>
         </div>
         <div className={styles.bottomRight}>
-          <div className={styles.smallText}>Wind: {wind} m/s</div>
+          <div className={styles.smallText}>Wind: {round(wind, 1)} m/s</div>
           <div className={styles.smallText}>Humidity: {humidity} %</div>
-          <div className={styles.smallText}>Precipitation (3h): {rain} mm</div>
+          <div className={styles.smallText}>
+            Precipitation (3h): {round(rain, 1)} mm
+          </div>
         </div>
       </div>
     </div>

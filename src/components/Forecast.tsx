@@ -1,6 +1,7 @@
 import React from 'react'
 import ForecastData from '../types/ForeCastData'
 import styles from './Forecast.module.css'
+import round from '../utils/round'
 
 type Props = {
   forecast: ForecastData
@@ -18,12 +19,12 @@ const Forecast = ({ forecast }: Props) => {
       <div>
         <div className={styles.time}>{time}</div>
         <div>{icon}</div>
-        <div className={styles.temp}>{temp} °C</div>
+        <div className={styles.temp}>{round(temp, 0)} °C</div>
       </div>
       <div className={styles.bottomPart}>
-        <div>{wind} m/s</div>
+        <div>{round(wind, 1)} m/s</div>
         <div>{humidity} %</div>
-        <div>{rain} mm</div>
+        <div>{round(rain, 1)} mm</div>
       </div>
     </div>
   )
