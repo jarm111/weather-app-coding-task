@@ -23,7 +23,7 @@ const CurrentWeather = ({ name, currentWeather }: Props) => {
           <div className={styles.smallText}>{description}</div>
         </div>
         <div className={styles.topRight}>
-          <div>
+          <div className={styles.iconContainer}>
             <img src={getWeatherIcon(icon)} alt="Weather icon" />
           </div>
           <div className={styles.temp}>{round(temp, 0)} °C</div>

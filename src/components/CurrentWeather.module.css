@@ -35,6 +35,8 @@
 .topRight {
   composes: partPadding;
   composes: alignRight;
+  display: flex;
+  align-items: center;
 }
 
 .bottomLeft {
@@ -67,6 +69,7 @@
 
 .temp {
   font-size: 1.6em;
+  margin-left: 0.2em;
 }
 
 .date {
