@@ -11,7 +11,7 @@ const apiDataParser = (locations: Array<any>): Array<LocationData> => {
           date: new Date(forecast.dt_txt),
           icon: forecast.weather[0].icon,
           temp: forecast.main.temp,
-          wind: forecast.wind.speed,
+          wind: forecast.wind ? forecast.wind.speed : 0,
           humidity: forecast.main.humidity,
           rain: forecast.rain ? forecast.rain['3h'] : 0,
           description: forecast.weather[0].description
