@@ -6,3 +6,15 @@ body {
   color: #262626;
   margin: 0;
 }
+
+@media (min-width: 500px) {
+  body {
+    font-size: 1.1em;
+  }
+}
+
+@media (min-width: 700px) {
+  body {
+    font-size: 1.2em;
+  }
+}

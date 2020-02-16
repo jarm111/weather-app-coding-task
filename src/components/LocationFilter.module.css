@@ -8,4 +8,5 @@
 .select {
   border: 0px;
   width: 100%;
+  composes: s from '../styles/fonts.module.css';
 }
