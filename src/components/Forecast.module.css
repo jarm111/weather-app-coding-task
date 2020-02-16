@@ -1,7 +1,6 @@
 .container {
   background-color: #ffffff;
-  border: 1px solid #e6e6e6;
-  border-radius: 4px;
+  composes: roundedThin from '../styles/borders.module.css';
   text-align: center;
   padding-top: 1em;
 }
