@@ -1,6 +1,6 @@
 .roundedThin {
   border-width: 1px;
   border-style: solid;
-  composes: borderColor from './colors.module.css';
+  composes: thinBorder from './colors.module.css';
   border-radius: 6px;
 }
