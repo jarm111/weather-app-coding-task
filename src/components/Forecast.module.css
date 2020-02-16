@@ -6,17 +6,17 @@
 }
 
 .time {
-  font-size: 0.8em;
+  composes: s from '../styles/fonts.module.css';
   composes: dimText from '../styles/colors.module.css';
 }
 
 .temp {
-  font-size: 0.93em;
+  composes: m from '../styles/fonts.module.css';
   padding-bottom: 0.5em;
 }
 
 .bottomPart {
-  font-size: 0.62em;
+  composes: xs from '../styles/fonts.module.css';
   composes: dimText from '../styles/colors.module.css';
   border-top: 1px solid #e6e6e6;
   composes: altBoxBackground from '../styles/colors.module.css';
