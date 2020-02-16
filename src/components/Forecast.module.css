@@ -1,5 +1,5 @@
 .container {
-  background-color: #ffffff;
+  composes: boxBackground from '../styles/colors.module.css';
   composes: roundedThin from '../styles/borders.module.css';
   text-align: center;
   padding-top: 1em;
@@ -7,7 +7,7 @@
 
 .time {
   font-size: 0.8em;
-  color: #70757a;
+  composes: dimText from '../styles/colors.module.css';
 }
 
 .temp {
@@ -17,8 +17,8 @@
 
 .bottomPart {
   font-size: 0.62em;
-  color: #70757a;
+  composes: dimText from '../styles/colors.module.css';
   border-top: 1px solid #e6e6e6;
-  background-color: #e5f6fd;
+  composes: altBoxBackground from '../styles/colors.module.css';
   padding: 0.7em 0.5em 0.7em;
 }

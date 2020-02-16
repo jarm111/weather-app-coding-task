@@ -1,5 +1,5 @@
 .container {
-  background-color: #ffffff;
+  composes: boxBackground from '../styles/colors.module.css';
   composes: roundedThin from '../styles/borders.module.css';
   margin-bottom: 1em;
   padding: 0.7em;
