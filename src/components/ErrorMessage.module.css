@@ -1,0 +1,6 @@
+.container {
+  text-align: center;
+  margin-top: 2em;
+  composes: l from '../styles/fonts.module.css';
+  color: #b10000;
+}

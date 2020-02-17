@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { ClipLoader } from 'react-spinners'
 import Heading from './Heading'
 import LocationFilter from './LocationFilter'
 import Location from './Location'
+import ErrorMessage from './ErrorMessage'
+import LoadingSpinner from './LoadingSpinner'
 import apiDataParser from '../utils/apiDataParser'
 import LocationData from '../types/LocationData'
 import styles from './App.module.css'
@@ -34,25 +35,11 @@ const App = () => {
 
   const returnContent = () => {
     if (isError) {
-      return (
-        <div className={styles.errorMessage}>
-          <span role="img" aria-label="Developer">
-            👩‍💻
-          </span>{' '}
-          Oops, something went wrong...{' '}
-          <span role="img" aria-label="Developer">
-            👨‍💻
-          </span>
-        </div>
-      )
+      return <ErrorMessage />
     }
 
     if (!locations) {
-      return (
-        <div className={styles.spinner}>
-          <ClipLoader color={'#12dddd'} size="80px" />
-        </div>
-      )
+      return <LoadingSpinner />
     }
 
     return (
