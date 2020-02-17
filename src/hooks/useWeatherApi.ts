@@ -16,7 +16,7 @@ const locationsMap: Array<Location> = [
 ]
 
 const getUrl = (id: string, key: string): string => {
-  return `http://api.openweathermap.org/data/2.5/forecast?id=${id}&units=metric&APPID=${key}`
+  return `https://api.openweathermap.org/data/2.5/forecast?id=${id}&units=metric&APPID=${key}`
 }
 
 const apiKey = process.env.REACT_APP_API_KEY || ''
