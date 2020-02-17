@@ -11,6 +11,7 @@ import styles from './App.module.css'
 const App = () => {
   const [filter, setFilter] = useState('')
   const [locations, setLocations] = useState<Array<LocationData> | null>(null)
+  const [isError, setIsError] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,15 +21,32 @@ const App = () => {
           `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
         )
       })
-
-      const data = (await axios.all(requests)).map(results => results.data)
-      setLocations(apiDataParser(data))
+      try {
+        const data = (await axios.all(requests)).map(results => results.data)
+        setLocations(apiDataParser(data))
+      } catch (error) {
+        setIsError(true)
+      }
     }
 
     fetchData()
   }, [])
 
   const returnContent = () => {
+    if (isError) {
+      return (
+        <div className={styles.errorMessage}>
+          <span role="img" aria-label="Developer">
+            👩‍💻
+          </span>{' '}
+          Oops, something went wrong...{' '}
+          <span role="img" aria-label="Developer">
+            👨‍💻
+          </span>
+        </div>
+      )
+    }
+
     if (!locations) {
       return (
         <div className={styles.spinner}>

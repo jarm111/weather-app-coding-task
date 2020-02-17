@@ -5,7 +5,17 @@
   max-width: 700px;
 }
 
-.spinner {
+.center {
   text-align: center;
   margin-top: 2em;
+}
+
+.spinner {
+  composes: center;
+}
+
+.errorMessage {
+  composes: center;
+  composes: l from '../styles/fonts.module.css';
+  color: #b10000;
 }
