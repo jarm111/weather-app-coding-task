@@ -4,3 +4,8 @@
   margin-right: auto;
   max-width: 700px;
 }
+
+.spinner {
+  text-align: center;
+  margin-top: 2em;
+}

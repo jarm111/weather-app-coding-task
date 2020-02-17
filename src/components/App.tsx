@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { ClipLoader } from 'react-spinners'
 import Heading from './Heading'
 import LocationFilter from './LocationFilter'
 import Location from './Location'
@@ -19,6 +20,7 @@ const App = () => {
           `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
         )
       })
+
       const data = (await axios.all(requests)).map(results => results.data)
       setLocations(apiDataParser(data))
     }
@@ -26,21 +28,31 @@ const App = () => {
     fetchData()
   }, [])
 
-  if (!locations) {
-    return null
-  }
+  const returnContent = () => {
+    if (!locations) {
+      return (
+        <div className={styles.spinner}>
+          <ClipLoader color={'#12dddd'} size="80px" />
+        </div>
+      )
+    }
 
-  return (
-    <div>
-      <Heading />
-      <div className={styles.content}>
+    return (
+      <React.Fragment>
         <LocationFilter setFilter={setFilter} locations={locations} />
         {locations
           .filter(location => !filter || location.name === filter)
           .map(location => (
             <Location key={location.id} location={location} />
           ))}
-      </div>
+      </React.Fragment>
+    )
+  }
+
+  return (
+    <div>
+      <Heading />
+      <div className={styles.content}>{returnContent()}</div>
     </div>
   )
 }
