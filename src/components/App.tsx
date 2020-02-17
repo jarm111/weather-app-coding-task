@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import Heading from './Heading'
 import LocationFilter from './LocationFilter'
 import Location from './Location'
-import helsinki from '../utils/mock-data/open-weather-api-helsinki-response.json'
-import tampere from '../utils/mock-data/open-weather-api-tampere-response.json'
-import jyvaskyla from '../utils/mock-data/open-weather-api-jyvaskyla-response.json'
-import kuopio from '../utils/mock-data/open-weather-api-kuopio-response.json'
 import apiDataParser from '../utils/apiDataParser'
+import LocationData from '../types/LocationData'
 import styles from './App.module.css'
-import axios from 'axios'
 
 const App = () => {
   const [filter, setFilter] = useState('')
-  const locations = apiDataParser([helsinki, jyvaskyla, tampere, kuopio])
+  const [locations, setLocations] = useState<Array<LocationData> | null>(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,12 +20,15 @@ const App = () => {
         )
       })
       const data = (await axios.all(requests)).map(results => results.data)
-      console.log('results', data)
-      console.log('parsed', apiDataParser(data))
+      setLocations(apiDataParser(data))
     }
 
     fetchData()
   }, [])
+
+  if (!locations) {
+    return null
+  }
 
   return (
     <div>
