@@ -4,7 +4,7 @@ import styles from './LoadingSpinner.module.css'
 
 const LoadingSpinner = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="loading">
       <ClipLoader color={'#12dddd'} size="80px" />
     </div>
   )

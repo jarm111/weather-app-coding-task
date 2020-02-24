@@ -3,7 +3,7 @@ import styles from './ErrorMessage.module.css'
 
 const ErrorMessage = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="error">
       <span role="img" aria-label="Developer">
         👩‍💻
       </span>{' '}
