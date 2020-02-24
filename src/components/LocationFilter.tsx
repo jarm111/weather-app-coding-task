@@ -14,7 +14,11 @@ const LocationFilter = ({ setFilter, locations }: Props) => {
 
   return (
     <div className={styles.container}>
-      <select className={styles.select} onChange={handleChange}>
+      <select
+        className={styles.select}
+        onChange={handleChange}
+        data-testid="select"
+      >
         <option value="">All Cities</option>
         {locations.map(location => (
           <option key={location.id} value={location.name}>
