@@ -34,7 +34,7 @@ const App = () => {
 
   return (
     <div>
-      <Heading />
+      <Heading content="Weather Radar" />
       <div className={styles.content}>{returnContent()}</div>
     </div>
   )
